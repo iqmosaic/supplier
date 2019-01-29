@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Iqmosaic_SupplierApi::supplier" title="Supplier" translate="title" sortOrder="10">
+                        <resource id="Iqmosaic_SupplierApi::supplier_admin" title="Supplier Admin" translate="title" sortOrder="10">
+                            <resource id="Iqmosaic_SupplierApi::source_edit" title="Edit Suppliers" translate="title" sortOrder="10" />
+                        </resource>
+                        <resource id="Iqmosaic_SupplierApi::supplier_account" title="Supplier Account " translate="title" sortOrder="10" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

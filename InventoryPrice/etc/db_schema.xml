@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="inventory_source_item_price" engine="innodb" resource="default" comment="Suppliers Related Sources">
+    <column xsi:type="varchar" name="sku" nullable="false" comment="Product SKU" length="64" />
+    <column xsi:type="varchar" name="source_code" nullable="false" comment="Product Entity Id" length="255"/>
+    <column xsi:type="int" name="supplier_id" nullable="false" comment="Supplier Id"/>
+    <column xsi:type="decimal" name="price" scale="4" precision="12" unsigned="false" nullable="true"
+            comment="Price Qty"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="sku"/>
+      <column name="source_code"/>
+      <column name="supplier_id"/>
+    </constraint>
+  </table>
+</schema>

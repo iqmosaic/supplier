@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="supplier-account-info">
+                <arguments>
+                    <argument name="path" xsi:type="string">supplier/account/info</argument>
+                    <argument name="label" xsi:type="string" translate="true">Supplier Account</argument>
+                    <argument name="sortOrder" xsi:type="number">340</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="supplier-account-source">
+                <arguments>
+                    <argument name="path" xsi:type="string">supplier/account/sources</argument>
+                    <argument name="label" xsi:type="string" translate="true">Supplier Sources</argument>
+                    <argument name="sortOrder" xsi:type="number">350</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

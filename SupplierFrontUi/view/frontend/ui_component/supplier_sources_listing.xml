@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">supplier_sources_listing.supplier_sources_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="new">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Supplier</label>
+            </button>
+        </buttons>
+        <spinner>supplier_supplier_columns</spinner>
+        <deps>
+            <dep>supplier_sources_listing.supplier_sources_listing_data_source</dep>
+        </deps>
+    </settings>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <!--bookmark name="bookmarks"/-->
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="name"/>
+        <paging name="listing_paging"/>
+        <filters name="listing_filters">
+            <settings>
+                <templates>
+                    <filters>
+                        <select>
+                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                        </select>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+    </listingToolbar>
+    <dataSource name="supplier_sources_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">source_code</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Iqmosaic_Supplier::supplier</aclResource>
+        <dataProvider class="Iqmosaic\SupplierFrontUi\Ui\DataProvider\SupplierSourceDataProvider" name="supplier_sources_listing_data_source">
+            <settings>
+                <requestFieldName>source_code</requestFieldName>
+                <primaryFieldName>source_code</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <!--
+    added_at: "2019-01-17 10:53:08"
+    city: "Oslo"
+    contact_name: null
+    country_id: "AL"
+    description: null
+    email: "test@gmail.com"
+    enabled: "1"
+    fax: null
+    id_field_name: "source_code"
+    latitude: null
+    link_id: "27"
+    longitude: null
+    name: "test3"
+    phone: "96393315"
+    postcode: "0552"
+    region: null
+    region_id: null
+    source_code: "test3"
+    status: "0"
+    street: "Thorvald Meyers gate 46"
+    supplier_id: "3"
+    use_default_carrier_config: "1"
+    -->
+
+
+    <columns name="supplier_supplier_columns">
+        <selectionsColumn name="ids" sortOrder="10">
+            <settings>
+                <indexField>source_code</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="source_code" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Source Code</label>
+            </settings>
+        </column>
+
+        <column name="city"  sortOrder="80">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">City</label>
+                <visible>true</visible>
+            </settings>
+        </column>
+        <column name="country_id"  sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Country</label>
+            </settings>
+        </column>
+        <column name="postcode"  sortOrder="70">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Postcode</label>
+            </settings>
+        </column>
+
+        <column name="enabled" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <label translate="true">Is Enabled</label>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <options>
+                    <option name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">Enabled</item>
+                    </option>
+                    <option name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">Disabled</item>
+                    </option>
+                </options>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Magento\Backend\Ui\Component\Listing\Column\EditAction" sortOrder="200">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editUrlPath" xsi:type="string">supplier/account/source/</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

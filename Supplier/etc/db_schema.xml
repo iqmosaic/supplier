@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="supplier" engine="innodb" resource="default" comment="Supplier Table">
+    <column xsi:type="int" name="supplier_id" nullable="false" comment="" unsigned="false" identity="true"/>
+    <column xsi:type="int" name="customer_id" nullable="false" comment="" unsigned="false" />
+    <column xsi:type="tinyint" name="approved" nullable="false" comment="" unsigned="false" default="0"/>
+    <column xsi:type="tinyint" name="auto_updated_stock" nullable="false" comment="" default="0"/>
+    <column xsi:type="varchar" name="company_name" nullable="true" comment="" length="255"/>
+    <column xsi:type="varchar" name="email" nullable="true" comment="" length="255"/>
+    <column xsi:type="varchar" name="street" nullable="true" comment="" length="100"/>
+    <column xsi:type="varchar" name="city" nullable="true" comment="" length="100"/>
+    <column xsi:type="varchar" name="country_id" nullable="true" comment="" length="100"/>
+    <column xsi:type="varchar" name="region" nullable="true" comment="" length="100"/>
+    <column xsi:type="int" name="region_id" nullable="true" comment="" />
+    <column xsi:type="varchar" name="postcode" nullable="true" comment="" length="10"/>
+    <column xsi:type="varchar" name="contact_name" nullable="true" comment="" length="100"/>
+    <column xsi:type="varchar" name="contact_phone" nullable="true" comment="" length="20"/>
+    <column xsi:type="varchar" name="website" nullable="true" comment="" length="255"/>
+    <column xsi:type="text" name="notes" nullable="true" comment="" />
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="supplier_id"/>
+    </constraint>
+    <index indexType="btree" referenceId="SUPPLIER_APPROVED">
+      <column name="approved"/>
+    </index>
+    <index indexType="btree" referenceId="SUPPLIER_EMAIL">
+      <column name="email"/>
+    </index>
+  </table>
+  <table name="supplier_source_link" engine="innodb" resource="default" comment="Suppliers Related Sources">
+    <column xsi:type="int" name="link_id" nullable="false" comment="" unsigned="false" identity="true"/>
+    <column xsi:type="int" name="supplier_id" nullable="true" comment="" />
+    <column xsi:type="varchar" name="source_code" nullable="true" comment="Product Entity Id" length="255"/>
+    <column xsi:type="tinyint" name="status" nullable="true" comment="Status source"/>
+    <column xsi:type="timestamp" name="added_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+            comment="Added by supplier at"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="link_id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="SUPPLIER_SOURCE_LINK_SUPPLIER_ID_SOURCE_CODE">
+      <column name="supplier_id"/>
+      <column name="source_code"/>
+    </constraint>
+  </table>
+  <table name="supplier_product_link" engine="innodb" resource="default" comment="Suppliers Related Products">
+    <column xsi:type="int" name="link_id" nullable="false" comment="" unsigned="false" identity="true"/>
+    <column xsi:type="int" name="supplier_id" nullable="true" comment="" />
+    <column xsi:type="varchar" name="sku" nullable="true" comment="Product Entity Id" length="64"/>
+    <column xsi:type="tinyint" name="status" nullable="true" comment="Status SKU"/>
+    <column xsi:type="timestamp" name="added_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+            comment="Added by supplier at"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="link_id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="SUPPLIER_PRODUCT_LINK_SUPPLIER_ID_SKU">
+      <column name="supplier_id"/>
+      <column name="sku"/>
+    </constraint>
+  </table>
+</schema>

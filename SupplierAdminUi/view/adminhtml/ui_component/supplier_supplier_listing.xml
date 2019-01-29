@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+  <argument name="data" xsi:type="array">
+    <item name="js_config" xsi:type="array">
+      <item name="provider" xsi:type="string">supplier_supplier_listing.supplier_supplier_listing_data_source</item>
+    </item>
+  </argument>
+  <settings>
+    <buttons>
+      <button name="new">
+        <url path="*/*/new"/>
+        <class>primary</class>
+        <label translate="true">Add New Supplier</label>
+      </button>
+    </buttons>
+    <spinner>supplier_supplier_columns</spinner>
+    <deps>
+      <dep>supplier_supplier_listing.supplier_supplier_listing_data_source</dep>
+    </deps>
+  </settings>
+  <listingToolbar name="listing_top">
+    <settings>
+      <sticky>true</sticky>
+    </settings>
+    <bookmark name="bookmarks"/>
+    <columnsControls name="columns_controls"/>
+    <filterSearch name="name"/>
+    <paging name="listing_paging"/>
+    <filters name="listing_filters">
+      <settings>
+        <templates>
+          <filters>
+            <select>
+              <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+              <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+            </select>
+          </filters>
+        </templates>
+      </settings>
+    </filters>
+  </listingToolbar>
+  <dataSource name="supplier_supplier_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <settings>
+      <storageConfig>
+        <param name="indexField" xsi:type="string">supplier_id</param>
+      </storageConfig>
+      <updateUrl path="mui/index/render"/>
+    </settings>
+    <aclResource>Iqmosaic_Supplier::supplier</aclResource>
+    <dataProvider class="Iqmosaic\SupplierAdminUi\Ui\DataProvider\SupplierDataProvider" name="supplier_supplier_listing_data_source">
+      <settings>
+        <requestFieldName>supplier_id</requestFieldName>
+        <primaryFieldName>supplier_id</primaryFieldName>
+      </settings>
+    </dataProvider>
+  </dataSource>
+  <columns name="supplier_supplier_columns">
+    <selectionsColumn name="ids" sortOrder="10">
+      <settings>
+        <indexField>supplier_id</indexField>
+      </settings>
+    </selectionsColumn>
+    <column name="supplier_id" sortOrder="20">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Supplier Id</label>
+      </settings>
+    </column>
+    <column name="user_id"  sortOrder="30">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Admin User Id</label>
+      </settings>
+    </column>
+
+    <column name="approved" component="Magento_Ui/js/grid/columns/select" sortOrder="40">
+      <settings>
+        <label translate="true">Is Enabled</label>
+        <filter>select</filter>
+        <dataType>select</dataType>
+        <options>
+          <option name="0" xsi:type="array">
+            <item name="value" xsi:type="number">1</item>
+            <item name="label" xsi:type="string" translate="true">Approved</item>
+          </option>
+          <option name="1" xsi:type="array">
+            <item name="value" xsi:type="number">0</item>
+            <item name="label" xsi:type="string" translate="true">Disabled</item>
+          </option>
+        </options>
+      </settings>
+    </column>
+
+    <column name="auto_updated_stock" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+      <settings>
+        <label translate="true">Auto Update Stock</label>
+        <filter>select</filter>
+        <dataType>select</dataType>
+        <options>
+          <option name="0" xsi:type="array">
+            <item name="value" xsi:type="number">1</item>
+            <item name="label" xsi:type="string" translate="true">Auto</item>
+          </option>
+          <option name="1" xsi:type="array">
+            <item name="value" xsi:type="number">0</item>
+            <item name="label" xsi:type="string" translate="true">Manual</item>
+          </option>
+        </options>
+      </settings>
+    </column>
+
+    <column name="name"  sortOrder="80">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Name</label>
+        <visible>true</visible>
+      </settings>
+    </column>
+    <column name="company_name"  sortOrder="60">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Company Name</label>
+      </settings>
+    </column>
+    <column name="email"  sortOrder="70">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">email</label>
+      </settings>
+    </column>
+    <column name="street"  sortOrder="80">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Address Street</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <column name="city"  sortOrder="100">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Address City</label>
+      </settings>
+    </column>
+    <column name="county" sortOrder="110">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Address Country</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <column name="state"  sortOrder="120">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Address State</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <column name="postcode"  sortOrder="130">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Address Postcode</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <column name="contact_name"  sortOrder="140">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Contact Name</label>
+      </settings>
+    </column>
+    <column name="contact_phone" sortOrder="150">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Contact Phone</label>
+      </settings>
+    </column>
+    <column name="notes"  sortOrder="160">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Notes</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <column name="website"  sortOrder="170">
+      <settings>
+        <filter>text</filter>
+        <label translate="true">Website</label>
+        <visible>false</visible>
+      </settings>
+    </column>
+    <actionsColumn name="actions" class="Magento\Backend\Ui\Component\Listing\Column\EditAction" sortOrder="200">
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="editUrlPath" xsi:type="string">supplier/supplier/edit</item>
+        </item>
+      </argument>
+    </actionsColumn>
+  </columns>
+</listing>

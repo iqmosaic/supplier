@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Supplier -->
+    <preference for="Iqmosaic\SupplierApi\Api\SupplierRepositoryInterface" type="Iqmosaic\Supplier\Model\SupplierRepository"/>
+    <preference for="Iqmosaic\SupplierApi\Api\Data\SupplierInterface" type="Iqmosaic\Supplier\Model\Supplier"/>
+    <preference for="Magento\InventoryApi\Api\Data\SourceItemSearchResultsInterface" type="Magento\Inventory\Model\SourceItemSearchResults"/>
+
+    <preference for="Iqmosaic\Supplier\Model\Supplier\Command\GetInterface" type="Iqmosaic\Supplier\Model\Supplier\Command\Get"/>
+    <preference for="Iqmosaic\Supplier\Model\Supplier\Command\SaveInterface" type="Iqmosaic\Supplier\Model\Supplier\Command\Save"/>
+    <preference for="Iqmosaic\Supplier\Model\Supplier\Command\GetListInterface" type="Iqmosaic\Supplier\Model\Supplier\Command\GetList"/>
+    <preference for="Iqmosaic\Supplier\Model\Supplier\Command\GetGridListInterface" type="Iqmosaic\Supplier\Model\Supplier\Command\GetGridList"/>
+    <preference for="Iqmosaic\SupplierApi\Api\Data\SupplierSearchResultsInterface" type="Iqmosaic\Supplier\Model\SupplierSearchResults"/>
+
+    <!-- SupplierSourceLink -->
+
+    <preference for="Iqmosaic\SupplierApi\Api\SupplierSourceLinkRepositoryInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLinkRepository"/>
+    <preference for="Iqmosaic\SupplierApi\Api\Data\SupplierSourceLinkSearchResultsInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLinkSearchResults"/>
+
+
+    <preference for="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\GetListInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\GetList"/>
+    <preference for="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\GetSourceListInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\GetSourceList"/>
+    <preference for="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\SaveMultipleInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\SaveMultiple"/>
+    <preference for="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\DeleteMultipleInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLink\Command\DeleteMultiple"/>
+
+
+    <preference for="Iqmosaic\SupplierApi\Api\Data\SupplierSourceLinkInterface" type="Iqmosaic\Supplier\Model\SupplierSourceLink"/>
+
+</config>

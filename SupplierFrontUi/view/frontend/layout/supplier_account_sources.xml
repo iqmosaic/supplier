@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Iqmosaic_UiGrid::css/backend.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <!--block
+                    class="Magento\Framework\View\Element\Template"
+                    name="belvg_note_note_index.menu"
+                    template="Belvg_Note::menu/belvg_note_note_index.phtml"
+            /-->
+            <uiComponent name="supplier_sources_listing"/>
+        </referenceContainer>
+    </body>
+</page>
