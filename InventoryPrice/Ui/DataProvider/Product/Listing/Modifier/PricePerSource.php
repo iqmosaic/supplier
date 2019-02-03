@@ -93,7 +93,7 @@ class PricePerSource extends AbstractModifier
         foreach ($sourceItems->getItems() as $sourceItem) {
 
             $sourceItemsData[] = [
-                'source_name' => $sourceItem->getSourceCode() ? $sourceItem->getSourceCode() : $sourceItem->getCompanyName(),
+                'source_name' => $sourceItem->getName(),
                 'price' => $sourceItem->getPrice(),
             ];
         }
@@ -113,7 +113,7 @@ class PricePerSource extends AbstractModifier
         $meta = array_replace_recursive($meta, [
             'product_columns' => [
                 'children' => [
-                    'price_per_source' => $this->getQuantityPerSourceMeta(),
+                    'price_per_source' => $this->getPricePerSourceMeta(),
                     'price' => [
                         'arguments' => null,
                     ],
@@ -126,7 +126,7 @@ class PricePerSource extends AbstractModifier
     /**
      * @return array
      */
-    private function getQuantityPerSourceMeta(): array
+    private function getPricePerSourceMeta(): array
     {
         return [
             'arguments' => [
