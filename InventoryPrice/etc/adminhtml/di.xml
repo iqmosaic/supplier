@@ -16,7 +16,17 @@
             </argument>
         </arguments>
     </virtualType>
-
+    <!--virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="source_items" xsi:type="array">
+                    <item name="class" xsi:type="string">Iqmosaic\InventoryPrice\Ui\DataProvider\Product\Form\Modifier\SourceItems</item>
+                    <item name="sortOrder" xsi:type="number">200</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType-->
+    <preference for="Magento\InventoryCatalogAdminUi\Ui\DataProvider\Product\Form\Modifier\SourceItems" type="Iqmosaic\InventoryPrice\Ui\DataProvider\Product\Form\Modifier\SourcePriceItems"/>
     <preference for="Iqmosaic\InventoryPrice\Model\InventoryPrice\Command\GetListBySkuInterface" type="Iqmosaic\InventoryPrice\Model\InventoryPrice\Command\GetListBySku"/>
     <preference for="Iqmosaic\InventoryPrice\Api\Data\InventoryPriceSearchResultsInterface" type="Iqmosaic\InventoryPrice\Model\InventoryPriceSearchResults"/>
 
