@@ -80,14 +80,9 @@ class GetListBySku implements GetListBySkuInterface
         $collection->getSelect()
             ->where('main_table.sku = ?', $sku)
             ->joinLeft(
-                ['s' => SupplierResourceModel::TABLE_NAME_SUPPLIER],
-                'main_table.supplier_id = s.supplier_id',
-                ['company_name']
-                )
-            ->joinLeft(
                 ['sc' => SourceResourceModel::TABLE_NAME_SOURCE],
                 'main_table.source_code = sc.source_code',
-                []
+                ['name']
             );
 
         $searchResult = $this->inventoryPriceSearchResultsInterfaceFactory->create();
