@@ -24,7 +24,6 @@ interface InventoryPriceInterface extends ExtensibleDataInterface
      */
     const SKU = 'sku';
     const SOURCE_CODE = 'source_code';
-    const SUPPLIER_ID = 'supplier_id';
     const PRICE = 'price';
 
     /**#@-*/
@@ -58,22 +57,6 @@ interface InventoryPriceInterface extends ExtensibleDataInterface
      * @return void
      */
     public function setSourceCode(?string $sourceCode): void;
-
-
-    /**
-     * Get supplier_id
-     *
-     * @return int|null
-     */
-    public function getSupplierId(): ?int;
-
-    /**
-     * Set supplier_id
-     *
-     * @param int|null $supplierId
-     * @return void
-     */
-    public function setSupplierId(?int $supplierId): void;
 
     /**
      * Get company name

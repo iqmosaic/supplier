@@ -59,24 +59,6 @@ class InventoryPrice extends AbstractExtensibleModel implements InventoryPriceIn
     /**
      * @inheritdoc
      */
-    public function getSupplierId(): ?int
-    {
-        return $this->getData(self::SUPPLIER_ID) === null ?
-            null:
-            (int)$this->getData(self::SUPPLIER_ID);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setSupplierId(?int $supplierId): void
-    {
-        $this->setData(self::SUPPLIER_ID, $supplierId);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getPrice(): ?float
     {
         return $this->getData(self::PRICE) === null ?

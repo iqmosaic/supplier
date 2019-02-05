@@ -39,6 +39,6 @@ class InventoryPrice extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init(self::TABLE_NAME_INVENTORY_PRICE, 'price_id');
+        $this->_init(self::TABLE_NAME_INVENTORY_PRICE, 'sku');
     }
 }
